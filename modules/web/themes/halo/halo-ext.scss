@@ -1,0 +1,11 @@
+@import "../halo/halo";
+@import "../VAADIN/addons/gantt/gantt";
+@import "../VAADIN/addons/gantt/gantt-valo";
+
+/* Define your theme modifications inside next mixin */
+@mixin halo-ext {
+  @include halo;
+
+  @include gantt;
+  @include gantt-valo;
+}
