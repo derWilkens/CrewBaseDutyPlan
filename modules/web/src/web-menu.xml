@@ -3,5 +3,6 @@
     <menu id="application"
           insertBefore="administration">
         <item id="demo"/>
+        <item id="demo$DutyPeriod.browse"/>
     </menu>
 </menu-config>

@@ -3,5 +3,17 @@
         caption="msg://caption"
         class="com.company.ganttdemo.web.screens.Demo"
         messagesPack="com.company.ganttdemo.web.screens">
+    <dsContext>
+            <datasource id="dutyPeriodDs"
+                    class="com.company.ganttdemo.entity.DutyPeriod"
+                    view="_local"/>
+        <groupDatasource id="dutyPeriodsDs"
+                         class="com.company.ganttdemo.entity.DutyPeriod"
+                         view="_local">
+            <query>
+                <![CDATA[select e from demo$DutyPeriod e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
     <layout/>
 </window>

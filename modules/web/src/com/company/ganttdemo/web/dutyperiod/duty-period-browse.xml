@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.ganttdemo.web.dutyperiod.DutyPeriodBrowse"
+        focusComponent="dutyPeriodsTable"
+        lookupComponent="dutyPeriodsTable"
+        messagesPack="com.company.ganttdemo.web.dutyperiod">
+    <dsContext>
+        <datasource id="dutyPeriodDs"
+                    class="com.company.ganttdemo.entity.DutyPeriod"
+                    view="_local"/>
+        <groupDatasource id="dutyPeriodsDs"
+                         class="com.company.ganttdemo.entity.DutyPeriod"
+                         view="_local">
+            <query>
+                <![CDATA[select e from demo$DutyPeriod e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <actions>
+        <action id="save"
+                caption="mainMsg://actions.Ok"
+                icon="icons/ok.png"
+                invoke="save"
+                shortcut="CTRL-ENTER"/>
+        <action id="cancel"
+                caption="mainMsg://actions.Cancel"
+                icon="icons/cancel.png"
+                invoke="cancel"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
+            <vbox id="lookupBox"
+                  expand="dutyPeriodsTable"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
+                <filter id="filter"
+                        applyTo="dutyPeriodsTable"
+                        datasource="dutyPeriodsDs">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="dutyPeriodsTable"
+                            width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="lastname"/>
+                        <column id="beginDate"/>
+                        <column id="endDate"/>
+                    </columns>
+                    <rows datasource="dutyPeriodsDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="dutyPeriodsTable.create"/>
+                        <button id="editBtn"
+                                action="dutyPeriodsTable.edit"/>
+                        <button id="removeBtn"
+                                action="dutyPeriodsTable.remove"/>
+                    </buttonsPanel>
+                </groupTable>
+            </vbox>
+            <vbox id="editBox"
+                  expand="fieldGroupBox"
+                  height="100%"
+                  margin="false,false,false,true"
+                  spacing="true">
+                <vbox id="fieldGroupBox">
+                    <fieldGroup id="fieldGroup"
+                                datasource="dutyPeriodDs">
+                        <column width="250px">
+                            <field id="lastname"/>
+                            <field id="beginDate"/>
+                            <field id="endDate"/>
+                        </column>
+                    </fieldGroup>
+                </vbox>
+                <hbox id="actionsPane"
+                      spacing="true"
+                      visible="false">
+                    <button id="saveBtn"
+                            action="save"/>
+                    <button id="cancelBtn"
+                            action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+        <vbox id="ganttBox"
+              spacing="true"/>
+    </layout>
+</window>

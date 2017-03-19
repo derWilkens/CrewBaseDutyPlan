@@ -7,3 +7,5 @@ modules/*/build/*
 out
 test-run
 deploy/*
+/build/
+/deploy/

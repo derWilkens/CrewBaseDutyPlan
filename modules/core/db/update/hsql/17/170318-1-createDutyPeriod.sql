@@ -1,4 +1,3 @@
--- begin DEMO_DUTY_PERIOD
 create table DEMO_DUTY_PERIOD (
     ID varchar(36) not null,
     CREATE_TS timestamp,
@@ -14,5 +13,4 @@ create table DEMO_DUTY_PERIOD (
     END_DATE timestamp,
     --
     primary key (ID)
-)^
--- end DEMO_DUTY_PERIOD
+);

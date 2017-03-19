@@ -3,4 +3,6 @@
     <include file="/screens.xml"/>
     <screen id="demo"
             template="com/company/ganttdemo/web/screens/demo.xml"/>
+    <screen id="demo$DutyPeriod.browse"
+            template="com/company/ganttdemo/web/dutyperiod/duty-period-browse.xml"/>
 </screen-config>
